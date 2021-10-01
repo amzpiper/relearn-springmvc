@@ -6,7 +6,12 @@
 
     <groupId>org.example</groupId>
     <artifactId>relearn-springmvc</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>springmvc-01-servlet</module>
+        <module>springmvc-02-hellomvc</module>
+    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
