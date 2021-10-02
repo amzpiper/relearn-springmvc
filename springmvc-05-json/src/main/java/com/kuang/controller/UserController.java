@@ -1,5 +1,7 @@
 package com.kuang.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -97,12 +99,58 @@ public class UserController {
 
     /**
      * 测试使用jsonUtils
+     *
      * @return
      * @throws JsonProcessingException
      */
     @RequestMapping(value = "/j4")
     public String json4() throws JsonProcessingException {
         Date date = new Date();
-        return JsonUtils.getJson(date,"yyy-MM-dd HH:mm:ss");
+        return JsonUtils.getJson(date, "yyy-MM-dd HH:mm:ss");
     }
+
+    /**
+     * 测试使用fastjson
+     *
+     * @return
+     * @throws JsonProcessingException
+     */
+    @RequestMapping(value = "/j5")
+    public String json5() throws JsonProcessingException {
+        String json;
+
+        //java的list对象转json数组字符串
+        List<User> users = new ArrayList<>();
+        User user = new User("亲家境", 12, "男");
+        User user2 = new User("亲家境", 12, "男");
+        User user3 = new User("亲家境", 12, "男");
+        User user4 = new User("亲家境", 12, "男");
+        users.add(user);
+        users.add(user2);
+        users.add(user3);
+        users.add(user4);
+        json = JSON.toJSONString(users);
+        System.out.println("java的list对象转json数组字符串:");
+        System.out.println(json);
+
+        //json数组字符串转java的list对象
+        List<User> jsonArray = JSON.parseArray(json,User.class);
+        System.out.println("json数组字符串转java的list对象:");
+        for (User user1 : jsonArray) {
+            System.out.println(user1.toString());
+        }
+
+        //java对象转json字符串
+        json = JSON.toJSONString(user);
+        System.out.println("java对象转json字符串:");
+        System.out.println(json);
+
+        //json对象字符串转java对象
+        user = JSON.parseObject(json, User.class);
+        System.out.println("json对象字符串转java对象:");
+        System.out.println(json);
+
+        return json;
+    }
+
 }
