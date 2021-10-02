@@ -66,5 +66,4 @@ public class ModelTest {
         //重定向
         return "redirect:/index.jsp";
     }
-
 }

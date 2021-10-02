@@ -12,6 +12,9 @@
   </head>
   <body>
   $END$
-
+  <form method="post" action="/e1/t1">
+    <input type="text" name="name">
+    <input type="submit">
+  </form>
   </body>
 </html>
