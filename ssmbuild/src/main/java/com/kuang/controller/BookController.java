@@ -76,7 +76,7 @@ public class BookController {
     }
 
     /**
-     * addBook添加书籍
+     * updateBook修改书籍
      *
      * @param model
      * @return
@@ -89,4 +89,17 @@ public class BookController {
 
         return "redirect:/book/allBook";
     }
+
+    /**
+     * deleteBook删除书籍
+     *
+     * @param model
+     * @return
+     */
+    @GetMapping("/book/deleteBook/{bookId}")
+    public String deleteBook(@PathVariable("bookId") int id, Model model) {
+        bookService.deleteBookById(id);
+        return "redirect:/book/allBook";
+    }
+
 }

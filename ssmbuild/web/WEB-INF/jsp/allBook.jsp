@@ -46,7 +46,7 @@
                                 <td>${book.detail}</td>
                                 <td>
                                     <a href="/book/toUpdateBookPiper/${book.bookId}" class="btn btn-info">修改</a> | &nbsp;
-                                    <a href="#" class="btn btn-danger">删除</a>
+                                    <a href="/book/deleteBook/${book.bookId}" class="btn btn-danger">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>
