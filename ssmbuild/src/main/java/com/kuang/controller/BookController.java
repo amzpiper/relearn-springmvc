@@ -51,7 +51,7 @@ public class BookController {
     }
 
     /**
-     * 跳转addBook
+     * addBook添加书籍
      * @param model
      * @return
      */
@@ -63,4 +63,25 @@ public class BookController {
         return "redirect:/book/allBook";
     }
 
+    /**
+     * 跳转updateBook.jsp
+     * @return
+     */
+    @GetMapping("/book/toUpdateBookPiper")
+    public String toUpdateBookPiper() {
+        return "updateBook";
+    }
+
+    /**
+     * addBook添加书籍
+     * @param model
+     * @return
+     */
+    @PostMapping("/book/updateBook")
+    public String updateBook(Books books,Model model) {
+        System.out.println(books);
+        bookService.addBook(books);
+
+        return "redirect:/book/allBook";
+    }
 }

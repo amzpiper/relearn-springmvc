@@ -28,12 +28,13 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <table class="table table-hover table-striped">
-                <thead></thead>
+                <thead>
                     <tr>书籍编号</tr>
                     <tr>书籍名称</tr>
                     <tr>书籍数量</tr>
                     <tr>书籍详情</tr>
                     <tr>操作</tr>
+                </thead>
                 <tbody>
                     <c:forEach items="${bookList}" var="book">
                         <tr>
