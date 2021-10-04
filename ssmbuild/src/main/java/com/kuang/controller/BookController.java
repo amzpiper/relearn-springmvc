@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -38,6 +39,28 @@ public class BookController {
         model.addAttribute("bookList", list);
 
         return "allBook";
+    }
+
+    /**
+     * 跳转addBook.jsp
+     * @return
+     */
+    @GetMapping("/book/toAddBookPiper")
+    public String toAddBookPiper() {
+        return "addBook";
+    }
+
+    /**
+     * 跳转addBook
+     * @param model
+     * @return
+     */
+    @PostMapping("/book/addBook")
+    public String addBook(Books books,Model model) {
+        System.out.println(books);
+        bookService.addBook(books);
+
+        return "redirect:/book/allBook";
     }
 
 }

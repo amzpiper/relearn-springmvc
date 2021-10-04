@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 郭宇航
@@ -5,7 +6,6 @@
   Time: 16:04
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
@@ -23,6 +23,7 @@
             </div>
         </div>
     </div>
+    <a href="/book/toAddBookPiper">添加数据</a>
 
     <div class="row clearfix">
         <div class="col-md-12 column">
@@ -32,13 +33,18 @@
                     <tr>书籍名称</tr>
                     <tr>书籍数量</tr>
                     <tr>书籍详情</tr>
+                    <tr>操作</tr>
                 <tbody>
-                    <c:forEach var="book" items="${bookList}">
+                    <c:forEach items="${bookList}" var="book">
                         <tr>
                             <td>${book.bookId}</td>
                             <td>${book.bookName}</td>
                             <td>${book.bookCounts}</td>
                             <td>${book.detail}</td>
+                            <td>
+                                <a href="#">修改</a> | &nbsp;
+                                <a href="#">删除</a>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
