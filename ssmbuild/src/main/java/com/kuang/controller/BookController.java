@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -67,20 +68,24 @@ public class BookController {
      * 跳转updateBook.jsp
      * @return
      */
-    @GetMapping("/book/toUpdateBookPiper")
-    public String toUpdateBookPiper() {
+    @GetMapping("/book/toUpdateBookPiper/{bookId}")
+    public String toUpdateBookPiper(@PathVariable("bookId") int id,Model model) {
+        Books book = bookService.queryBookById(id);
+        model.addAttribute("book", book);
         return "updateBook";
     }
 
     /**
      * addBook添加书籍
+     *
      * @param model
      * @return
      */
     @PostMapping("/book/updateBook")
-    public String updateBook(Books books,Model model) {
+    public String updateBook(Books books, Model model) {
+        System.out.println("/book/updateBook");
         System.out.println(books);
-        bookService.addBook(books);
+        bookService.updateBook(books);
 
         return "redirect:/book/allBook";
     }

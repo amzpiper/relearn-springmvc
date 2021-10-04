@@ -13,45 +13,47 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="page-header">
+                    <h1>
+                        <small>书籍列表</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <a href="/book/toAddBookPiper" class="btn btn-success">添加数据</a>
 
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="page-header">
-                <h1>
-                    <small>书籍列表</small>
-                </h1>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <td>书籍ID</td>
+                            <td>书籍名称</td>
+                            <td>书籍数量</td>
+                            <td>书籍详情</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${bookList}" var="book">
+                            <tr>
+                                <td>${book.bookId}</td>
+                                <td>${book.bookName}</td>
+                                <td>${book.bookCounts}</td>
+                                <td>${book.detail}</td>
+                                <td>
+                                    <a href="/book/toUpdateBookPiper/${book.bookId}" class="btn btn-info">修改</a> | &nbsp;
+                                    <a href="#" class="btn btn-danger">删除</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <a href="/book/toAddBookPiper">添加数据</a>
-
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>书籍编号</tr>
-                    <tr>书籍名称</tr>
-                    <tr>书籍数量</tr>
-                    <tr>书籍详情</tr>
-                    <tr>操作</tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${bookList}" var="book">
-                        <tr>
-                            <td>${book.bookId}</td>
-                            <td>${book.bookName}</td>
-                            <td>${book.bookCounts}</td>
-                            <td>${book.detail}</td>
-                            <td>
-                                <a href="#">修改</a> | &nbsp;
-                                <a href="#">删除</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
 </body>
 </html>
