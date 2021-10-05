@@ -25,8 +25,15 @@
         where bookId = #{bookId}
     </select>
 
+    <select id="queryBookByBookName" resultType="books" parameterType="string">
+        select bookId,bookName,bookCounts,detail
+        from books
+        where bookName like '%' #{bookName} '%'
+    </select>
+
     <select id="queryAllBook" resultType="books">
         select bookId,bookName,bookCounts,detail
         from books
     </select>
+
 </mapper>

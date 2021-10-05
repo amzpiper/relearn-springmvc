@@ -23,7 +23,22 @@
                 </div>
             </div>
         </div>
-        <a href="/book/toAddBookPiper" class="btn btn-success">添加数据</a>
+
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+                <a href="/book/toAddBookPiper" class="btn btn-success">添加数据</a>
+            </div>
+            <div class="col-md-5 column">
+                <form action="/book/searchBook" method="post" class="form-inline" role="form">
+                    <div class="form-group">
+                        <label>书籍名称：</label>
+                        <input type="text" class="form-control" name="bookName" placeholder="书籍名称" required/>
+                    </div>
+                    <input type="submit" value="查询" class="btn">
+                    <a href="/book/allBook" class="btn btn-success">重置</a>
+                </form>
+            </div>
+        </div>
 
         <div class="row clearfix">
             <div class="col-md-12 column">
@@ -45,7 +60,7 @@
                                 <td>${book.bookCounts}</td>
                                 <td>${book.detail}</td>
                                 <td>
-                                    <a href="/book/toUpdateBookPiper/${book.bookId}" class="btn btn-info">修改</a> | &nbsp;
+                                    <a href="/book/toUpdateBookPiper/${book.bookId}" class="btn btn-info">修改</a> |
                                     <a href="/book/deleteBook/${book.bookId}" class="btn btn-danger">删除</a>
                                 </td>
                             </tr>

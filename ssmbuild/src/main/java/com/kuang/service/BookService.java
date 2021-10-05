@@ -35,12 +35,20 @@ public interface BookService {
     int updateBook(Books books);
 
     /**
-     * 查询一本书
+     * 查询一本书id
      *
      * @param id
      * @return
      */
     Books queryBookById(int id);
+
+    /**
+     * 查询一本书name
+     *
+     * @param bookName
+     * @return
+     */
+    List<Books> queryBookByBookName(String bookName);
 
     /**
      * 查询所有书

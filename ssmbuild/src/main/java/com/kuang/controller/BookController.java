@@ -102,4 +102,22 @@ public class BookController {
         return "redirect:/book/allBook";
     }
 
+    /**
+     * 查询书籍根据书名
+     *
+     * @param model
+     * @return
+     */
+    @PostMapping("/book/searchBook")
+    public String searchBook(String bookName, Model model) {
+        System.out.println(bookName);
+        List<Books> bookSearchList = bookService.queryBookByBookName(bookName);
+        for (Books books : bookSearchList) {
+            System.out.println(books.toString());
+        }
+        model.addAttribute("bookList", bookSearchList);
+
+        return "allBook";
+    }
+
 }

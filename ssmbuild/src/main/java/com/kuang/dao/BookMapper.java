@@ -34,11 +34,18 @@ public interface BookMapper {
     int updateBook(Books books);
 
     /**
-     * 查询一本书
+     * 查询一本书id
      * @param id
      * @return
      */
     Books queryBookById(@Param("bookId")int id);
+
+    /**
+     * 查询一本书name
+     * @param bookName
+     * @return
+     */
+    List<Books> queryBookByBookName(@Param("bookName")String bookName);
 
     /**
      * 查询所有书
